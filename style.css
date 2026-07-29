@@ -1,0 +1,1250 @@
+/* ==============================
+   VINTAGE JOURNAL - STYLE.CSS
+   PART 1/3
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #1b120d;
+    font-family: "Cormorant Garamond", serif;
+    color: #2b2118;
+}
+
+
+/* ==============================
+   BACKGROUND
+================================ */
+
+.background {
+
+    position: fixed;
+    inset: 0;
+
+    background:
+    linear-gradient(
+        rgba(20,12,7,0.45),
+        rgba(20,12,7,0.65)
+    ),
+    url("images/desk.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    filter: sepia(40%);
+
+    z-index: -3;
+}
+
+
+.vignette {
+
+    position: fixed;
+    inset: 0;
+
+    background:
+    radial-gradient(
+        circle,
+        transparent 35%,
+        rgba(0,0,0,0.75)
+    );
+
+    z-index: -2;
+}
+
+
+.desk-light {
+
+    position: fixed;
+
+    width: 600px;
+    height: 600px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,220,150,0.25),
+        transparent 70%
+    );
+
+    top: 5%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: -1;
+
+}
+
+
+/* ==============================
+   JOURNAL SCENE
+================================ */
+
+.scene {
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    perspective: 2000px;
+
+}
+
+
+.book {
+
+    width: 650px;
+    height: 430px;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    transition:
+    transform 1.5s ease;
+
+}
+
+
+/* ==============================
+   LEATHER COVER
+================================ */
+
+.cover {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #5b3925,
+        #2c180e
+    );
+
+    border-radius: 10px 25px 25px 10px;
+
+
+    box-shadow:
+
+    inset 0 0 40px rgba(0,0,0,.7),
+    0 40px 80px rgba(0,0,0,.7);
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:#d6b56b;
+
+
+    transform-origin:left center;
+
+    transform-style:preserve-3d;
+
+
+    z-index:20;
+
+}
+
+
+.cover::after {
+
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    border:
+
+    2px solid rgba(214,181,107,.5);
+
+    border-radius:8px;
+
+}
+
+
+.gold-frame {
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.gold-frame h2 {
+
+    font-size:35px;
+
+    font-weight:400;
+
+    letter-spacing:4px;
+
+}
+
+
+.gold-frame h1 {
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:120px;
+
+    font-weight:400;
+
+    line-height:1;
+
+}
+
+
+.gold-frame p {
+
+    font-size:25px;
+
+    letter-spacing:5px;
+
+}
+
+
+
+/* Click instruction */
+
+.click-text {
+
+    position:absolute;
+
+    bottom:35px;
+
+    font-size:16px;
+
+    letter-spacing:3px;
+
+    opacity:.8;
+
+    animation:pulse 2s infinite;
+
+}
+
+
+@keyframes pulse {
+
+    0%,100% {
+        opacity:.4;
+    }
+
+    50% {
+        opacity:1;
+    }
+
+}
+/* ==============================
+   VINTAGE JOURNAL - STYLE.CSS
+   PART 2/3
+================================ */
+
+
+/* ==============================
+   JOURNAL PAGES
+================================ */
+
+.page {
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:#efe2c6;
+
+    border-radius:8px 20px 20px 8px;
+
+    padding:35px;
+
+    transform-origin:left center;
+
+    transform-style:preserve-3d;
+
+
+    box-shadow:
+
+    inset -25px 0 40px rgba(0,0,0,.15),
+    0 20px 50px rgba(0,0,0,.45);
+
+
+    overflow:hidden;
+
+
+    z-index:5;
+
+}
+
+
+/* Paper texture */
+
+.page::before {
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+
+    background:
+
+    linear-gradient(
+        rgba(255,255,255,.25),
+        rgba(180,140,80,.12)
+    ),
+    url("images/paper.jpg");
+
+
+    background-size:cover;
+
+    opacity:.45;
+
+    pointer-events:none;
+
+}
+
+
+
+/* Paper edges */
+
+.page::after {
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    width:35px;
+    height:100%;
+
+
+    background:
+
+    linear-gradient(
+        to left,
+        rgba(0,0,0,.12),
+        transparent
+    );
+
+
+}
+
+
+/* ==============================
+   PAPER CONTENT
+================================ */
+
+
+.paper {
+
+    position:relative;
+
+    z-index:2;
+
+
+    height:100%;
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    text-align:center;
+
+
+    padding:30px;
+
+}
+
+
+
+.paper h1 {
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:85px;
+
+    font-weight:400;
+
+    color:#4a3020;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.paper h2 {
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:55px;
+
+    font-weight:400;
+
+    color:#563723;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.paper h3 {
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:70px;
+
+    color:#9b6c3d;
+
+}
+
+
+
+.paper p {
+
+
+    font-size:25px;
+
+    line-height:1.8;
+
+    max-width:500px;
+
+    color:#3d2b1f;
+
+    margin:15px auto;
+
+}
+
+
+
+.quote {
+
+    font-style:italic;
+
+    color:#76543b !important;
+
+}
+
+
+
+/* ==============================
+   BUTTONS
+================================ */
+
+
+button {
+
+
+    margin-top:30px;
+
+    padding:12px 35px;
+
+
+    background:#5a3924;
+
+    color:#f4dfae;
+
+
+    border:none;
+
+    cursor:pointer;
+
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:20px;
+
+
+    letter-spacing:2px;
+
+
+    border-radius:30px;
+
+
+    box-shadow:
+
+    0 10px 20px rgba(0,0,0,.25);
+
+
+    transition:.4s;
+
+
+}
+
+
+
+button:hover {
+
+
+    background:#382014;
+
+
+    transform:
+
+    translateY(-4px);
+
+
+}
+
+
+
+
+/* ==============================
+   PHOTO PAGE
+================================ */
+
+
+.photo {
+
+
+    width:240px;
+
+    padding:15px;
+
+
+    background:#faf5e8;
+
+
+    box-shadow:
+
+    0 15px 30px rgba(0,0,0,.35);
+
+
+    transform:
+
+    rotate(-4deg);
+
+
+    margin:20px;
+
+
+}
+
+
+
+.photo img {
+
+
+    width:100%;
+
+    height:220px;
+
+
+    object-fit:cover;
+
+
+}
+
+
+
+.photo-page p {
+
+
+    font-size:22px;
+
+}
+
+
+
+/* ==============================
+   FINAL PAGE
+================================ */
+
+
+.final-page .paper {
+
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    rgba(255,220,150,.25),
+
+    transparent
+
+    );
+
+
+}
+
+
+.final-page h1 {
+
+
+    font-size:100px;
+
+
+}
+
+
+/* ==============================
+   BOOK DEPTH
+================================ */
+
+
+.book::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    left:-25px;
+
+    top:10px;
+
+
+    width:40px;
+
+    height:calc(100% - 20px);
+
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    #24140c,
+
+    #6b4528
+
+    );
+
+
+    border-radius:15px 0 0 15px;
+
+
+    box-shadow:
+
+    inset 5px 0 10px rgba(0,0,0,.6);
+
+
+}
+
+
+
+/* Pages stacked effect */
+
+
+.page:nth-child(2) {
+
+    transform:translateZ(-5px);
+
+}
+
+
+.page:nth-child(3) {
+
+    transform:translateZ(-10px);
+
+}
+
+
+.page:nth-child(4) {
+
+    transform:translateZ(-15px);
+
+}
+
+
+.page:nth-child(5) {
+
+    transform:translateZ(-20px);
+
+}
+
+
+.page:nth-child(6) {
+
+    transform:translateZ(-25px);
+
+}
+
+
+.page:nth-child(7) {
+
+    transform:translateZ(-30px);
+
+}
+
+
+/* ==============================
+   OPEN BOOK STATE
+================================ */
+
+
+.book.open .front-cover {
+
+
+    transform:
+
+    rotateY(-160deg);
+
+
+}
+
+
+
+.book.open {
+
+
+    transform:
+
+    translateX(150px);
+
+
+}
+/* ==============================
+   VINTAGE JOURNAL - STYLE.CSS
+   PART 3/3
+================================ */
+
+
+/* ==============================
+   PAGE FLIP ANIMATION STATES
+================================ */
+
+
+.page.flipped {
+
+    transform:
+
+    rotateY(-180deg);
+
+}
+
+
+.page {
+
+    transition:
+
+    transform 1.2s cubic-bezier(.65,.05,.36,1);
+
+}
+
+
+
+/* ==============================
+   FLOATING DUST PARTICLES
+================================ */
+
+
+.dust {
+
+    position:fixed;
+
+    width:5px;
+
+    height:5px;
+
+    background:
+
+    rgba(255,220,150,.8);
+
+
+    border-radius:50%;
+
+
+    animation:
+
+    floatDust 12s infinite linear;
+
+
+    pointer-events:none;
+
+}
+
+
+
+@keyframes floatDust {
+
+
+    0% {
+
+        transform:
+
+        translateY(100vh)
+
+        translateX(0);
+
+        opacity:0;
+
+    }
+
+
+    20% {
+
+        opacity:1;
+
+    }
+
+
+    100% {
+
+
+        transform:
+
+        translateY(-20vh)
+
+        translateX(100px);
+
+
+        opacity:0;
+
+
+    }
+
+}
+
+
+
+/* ==============================
+   CANDLE LIGHT EFFECT
+================================ */
+
+
+.scene::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:500px;
+
+    height:500px;
+
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    rgba(255,190,90,.18),
+
+    transparent 65%
+
+    );
+
+
+    top:50%;
+
+    left:50%;
+
+
+    transform:
+
+    translate(-50%,-50%);
+
+
+    animation:
+
+    flicker 4s infinite;
+
+
+    pointer-events:none;
+
+
+}
+
+
+
+@keyframes flicker {
+
+
+    0%,100% {
+
+        opacity:.7;
+
+    }
+
+
+    50% {
+
+        opacity:1;
+
+    }
+
+
+}
+
+
+
+/* ==============================
+   GOLD EMBOSS EFFECT
+================================ */
+
+
+.gold-frame h1,
+.gold-frame h2,
+.gold-frame p {
+
+
+    text-shadow:
+
+
+    0 1px 0 #f6d98b,
+
+    0 3px 5px rgba(0,0,0,.5);
+
+
+}
+
+
+
+/* ==============================
+   BOOK HOVER EFFECT
+================================ */
+
+
+.book:hover {
+
+
+    transform:
+
+    translateY(-15px)
+
+    rotateX(4deg);
+
+
+}
+
+
+
+/* ==============================
+   COVER OPENING
+================================ */
+
+
+.front-cover {
+
+
+    transition:
+
+    transform 1.8s
+
+    cubic-bezier(.65,.05,.36,1);
+
+
+    backface-visibility:hidden;
+
+}
+
+
+
+.book.open .front-cover {
+
+
+    transform:
+
+    rotateY(-165deg);
+
+
+}
+
+
+
+/* ==============================
+   HIDDEN CONTENT BEFORE OPEN
+================================ */
+
+
+.book:not(.open) .page {
+
+
+    pointer-events:none;
+
+
+}
+
+
+
+/* ==============================
+   FOOTER / EXTRA DETAILS
+================================ */
+
+
+.ribbon {
+
+
+    position:absolute;
+
+
+    width:35px;
+
+    height:100%;
+
+
+    right:50px;
+
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    #7b1f25,
+
+    #a83a40
+
+    );
+
+
+    z-index:30;
+
+
+}
+
+
+
+.wax-seal {
+
+
+    position:absolute;
+
+
+    bottom:35px;
+
+    right:45px;
+
+
+    width:80px;
+
+    height:80px;
+
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    #9b2c2c,
+
+    #5b1010
+
+    );
+
+
+    border-radius:50%;
+
+
+    box-shadow:
+
+    0 10px 20px rgba(0,0,0,.4);
+
+
+}
+
+
+
+/* ==============================
+   MOBILE DESIGN
+================================ */
+
+
+@media(max-width:900px){
+
+
+    body {
+
+        overflow:auto;
+
+    }
+
+
+    .book {
+
+
+        width:90vw;
+
+        height:60vh;
+
+
+    }
+
+
+    .gold-frame h1 {
+
+
+        font-size:80px;
+
+    }
+
+
+    .gold-frame h2 {
+
+
+        font-size:28px;
+
+    }
+
+
+    .paper h1 {
+
+
+        font-size:55px;
+
+    }
+
+
+    .paper h2 {
+
+
+        font-size:42px;
+
+    }
+
+
+    .paper p {
+
+
+        font-size:20px;
+
+    }
+
+
+    .book.open {
+
+
+        transform:
+
+        translateX(0);
+
+    }
+
+
+}
+
+
+
+@media(max-width:500px){
+
+
+    .book {
+
+
+        height:55vh;
+
+    }
+
+
+    .cover {
+
+
+        border-radius:8px;
+
+    }
+
+
+    .paper {
+
+
+        padding:15px;
+
+    }
+
+
+    button {
+
+
+        font-size:16px;
+
+        padding:10px 25px;
+
+    }
+
+
+}
+
+
+
+/* ==============================
+   SMOOTH APPEARANCE
+================================ */
+
+
+.paper {
+
+
+    animation:
+
+    appear 1.5s ease;
+
+
+}
+
+
+
+@keyframes appear {
+
+
+    from {
+
+        opacity:0;
+
+        transform:
+
+        translateY(20px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+
+        translateY(0);
+
+    }
+
+
+}
